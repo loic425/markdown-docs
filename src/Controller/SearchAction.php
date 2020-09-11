@@ -37,7 +37,7 @@ final class SearchAction extends AbstractController
         $query = $request->get('query', '');
 
         $finder = new Finder();
-        $finder->files()->in($this->templateDir.'/doc')->contains($query);
+        $finder->files()->in($this->templateDir.'/docs')->contains($query);
 
         return $this->render('search/index.html.twig', [
             'files' => $finder,
