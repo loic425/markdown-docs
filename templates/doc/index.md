@@ -1,0 +1,3 @@
+# Documentation
+
+* [Dummy](/dummy)
