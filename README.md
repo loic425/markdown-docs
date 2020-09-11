@@ -24,4 +24,4 @@ Markdown templates are on `templates/doc` directory.
 Your files are already available on your server.
 
 Example:
-`docs/dummy/foo.md` is available at [/docs/dummy/foo](http://localhost:8000/dummy/foo)
+`docs/dummy/foo.md` is available at [/docs/dummy/foo](http://localhost:8000/docs/dummy/foo)
