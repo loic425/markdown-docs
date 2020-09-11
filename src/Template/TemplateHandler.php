@@ -25,7 +25,7 @@ final class TemplateHandler implements TemplateHandlerInterface
 
     public function getTemplatePath($slug): ?string
     {
-        return '/doc/'.$slug.'.md';
+        return $slug.'.md';
     }
 
     public function getTemplateAbsolutePath($slug): ?string
