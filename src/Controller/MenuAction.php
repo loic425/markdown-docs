@@ -15,11 +15,10 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class SearchAction extends AbstractController
+final class MenuAction extends AbstractController
 {
     /** @var string */
     private $docsDir;
@@ -30,17 +29,24 @@ final class SearchAction extends AbstractController
     }
 
     /**
-     * @Route("search", name="search", requirements={"query"=".+"})
+     * @Route(path="/menu", name="menu")
      */
-    public function __invoke(Request $request): Response
+    public function __invoke(): Response
     {
-        $query = $request->get('query', '');
-
         $finder = new Finder();
-        $finder->files()->in($this->docsDir)->contains($query);
+        $finder->files()->in($this->docsDir)->depth(0)->notName('index.md');
 
-        return $this->render('search/index.html.twig', [
-            'files' => $finder,
-        ]);
+        $menuItems = [];
+        $docs = basename($this->docsDir);
+
+        foreach($finder as $file) {
+            $slug = $docs.'/'.rtrim($file->getRelativePathName(),'.md');
+            $menuItems[] = [
+                'slug' => $slug,
+                'path' => '/'.$slug,
+            ];
+        }
+
+        return $this->render('layout/menu.html.twig', ['menu_items' => $menuItems]);
     }
 }

@@ -16,11 +16,11 @@ namespace App\Template;
 final class TemplateHandler implements TemplateHandlerInterface
 {
     /** @var string */
-    private $templateDir;
+    private $projectDir;
 
-    public function __construct(string $templateDir)
+    public function __construct(string $projectDir)
     {
-        $this->templateDir = $templateDir;
+        $this->projectDir = $projectDir;
     }
 
     public function getTemplatePath($slug): ?string
@@ -30,6 +30,6 @@ final class TemplateHandler implements TemplateHandlerInterface
 
     public function getTemplateAbsolutePath($slug): ?string
     {
-        return $this->templateDir.'/'.$this->getTemplatePath($slug);
+        return $this->projectDir.'/'.$this->getTemplatePath($slug);
     }
 }
