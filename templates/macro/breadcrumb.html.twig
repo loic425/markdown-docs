@@ -9,6 +9,7 @@
                 </li>
 
                 {% for title in items %}
+                    {% if not loop.first %}
                     <li class="breadcrumb-item{% if loop.last %} active{% endif %}" {% if loop.last %}aria-current="page"{% endif %}>
                         {% set itemSlug = items|slice(0, loop.index)|join('/') %}
                         {% if not loop.last %}
@@ -16,6 +17,7 @@
                         {% else %}
                             {{ page_title(itemSlug) }}
                         {% endif %}
+                    {% endif %}
                     </li>
                 {% endfor %}
             </ol>

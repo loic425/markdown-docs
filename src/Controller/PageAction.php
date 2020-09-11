@@ -31,7 +31,7 @@ final class PageAction extends AbstractController
     }
 
     /**
-     * @Route("{slug}", name="page_show", requirements={"slug"=".+"}, priority=-999)
+     * @Route("{slug}", name="page_show", requirements={"slug"="docs/.+"}, priority=-999)
      */
     public function __invoke(string $slug = 'index'): Response
     {
