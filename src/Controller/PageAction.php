@@ -33,7 +33,7 @@ final class PageAction extends AbstractController
     /**
      * @Route("{slug}", name="page_show", requirements={"slug"="docs/.+"}, priority=-999)
      */
-    public function __invoke(string $slug = 'index'): Response
+    public function __invoke(string $slug): Response
     {
         if (false !== strpos($slug, '.md')) {
             return $this->redirectToRoute('page_show', ['slug' => rtrim($slug, '.md')]);
