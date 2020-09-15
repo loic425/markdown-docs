@@ -43,6 +43,7 @@ final class PageAction extends AbstractController
             return $this->render('page/show.html.twig', [
                 'slug' => $slug,
                 'template' => $this->templateHandler->getTemplatePath($slug),
+                'content' => file_get_contents($this->templateHandler->getTemplateAbsolutePath($slug)),
             ]);
         } catch (LoaderError $exception) {
             throw new NotFoundHttpException($exception->getMessage());
