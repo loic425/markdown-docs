@@ -8,6 +8,15 @@ Integer sed ligula nec nisl lobortis consequat vel nec tellus. Fusce pulvinar er
 
 Nullam facilisis enim magna, eget sodales dolor egestas semper. Nullam placerat sit amet diam eget interdum. Duis ullamcorper rhoncus libero, sit amet viverra est placerat eget. Proin egestas tortor eget ligula fringilla tincidunt. Fusce ligula lorem, tincidunt in justo quis, sagittis bibendum tortor. Curabitur ante arcu, volutpat a vehicula ut, placerat non eros. Suspendisse condimentum turpis neque, a ultrices tortor mollis ut.
 
+```html
+<form method="post" action="{{ path('app_book_delete', {'id': book.id}) }}">
+    <input type="hidden" name="_method" value="DELETE" />
+    <button type="submit">
+        Delete
+    </button>
+</form>
+```
+
 ```yaml
 # Example.yaml
 martin:
